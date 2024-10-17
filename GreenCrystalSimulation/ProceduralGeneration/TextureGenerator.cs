@@ -1,31 +1,27 @@
 ﻿
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.Linq;
 
 namespace GreenCrystalSimulation.ProceduralGeneration
 {
     public class TextureGenerator
     {
-        GraphicsDeviceManager graphics;
+        GraphicsDevice graphics;
         public TextureGenerator()
         {
 
         }
 
-        public Texture2D GenaratePixel(Color color)
+        public static Texture2D GenaratePixel(GraphicsDevice graphics, int size, Func<int, Color> paint)
         {
-            Color[] colors;
-            Texture2D texture;
+            Texture2D texture = new Texture2D(graphics, size, size);
+            Color[] data = new Color[size * size];
+            for (int pixel = 0; pixel < data.Count(); pixel++)
+                data[pixel] = paint(pixel);
+            texture.SetData(data);
             return texture;
-        }
-        private Color[] FillColors(Color color)
-        {
-            Color[] colors;
-            for (int i = 0; i > 0; i++)
-            {
-                colors[i] = color;
-            }
-            return colors;
         }
     }
 }
