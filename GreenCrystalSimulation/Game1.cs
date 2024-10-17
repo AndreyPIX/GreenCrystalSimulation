@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using GreenCrystalSimulation.ProceduralGeneration;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -7,7 +8,9 @@ namespace GreenCrystalSimulation
     public class Game1 : Game
     {
         private GraphicsDeviceManager graphics;
+        private GraphicsDevice graphicsDevice;
         private SpriteBatch spriteBatch;
+        private Object crystal;
 
         public Game1()
         {
@@ -18,6 +21,7 @@ namespace GreenCrystalSimulation
 
         protected override void Initialize()
         {
+            crystal.SetTexture(TextureGenerator.GenaratePixel(graphicsDevice, 16, pixel => Color.Green  ));
             base.Initialize();
         }
 
@@ -35,8 +39,9 @@ namespace GreenCrystalSimulation
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
             spriteBatch.Begin();
+            crystal.Draw(spriteBatch);
             spriteBatch.End();
             base.Draw(gameTime);
         }

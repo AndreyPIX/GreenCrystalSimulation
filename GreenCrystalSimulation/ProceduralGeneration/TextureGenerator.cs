@@ -8,12 +8,6 @@ namespace GreenCrystalSimulation.ProceduralGeneration
 {
     public class TextureGenerator
     {
-        GraphicsDevice graphics;
-        public TextureGenerator()
-        {
-
-        }
-
         public static Texture2D GenaratePixel(GraphicsDevice graphics, int size, Func<int, Color> paint)
         {
             Texture2D texture = new Texture2D(graphics, size, size);
