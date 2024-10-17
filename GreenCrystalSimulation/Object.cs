@@ -9,8 +9,10 @@ public class Object
 	protected Rectangle? sourseRectangle;
 	protected Color color;
 	protected float rotation;
-    private Vector2 origin;
-    private Vector2 scale;
+    protected Vector2 origin;
+    protected Vector2 scale;
+
+	private int id;
 
     public Object(Texture2D texture)
 	{
@@ -20,15 +22,10 @@ public class Object
         color = Color.White;
         rotation = 0;
         origin = Vector2.Zero;
-		scale = Vector2.Zero;
+		scale = new Vector2(1);
     }
 	public void Draw(SpriteBatch spriteBatch)
 	{
 		spriteBatch.Draw(texture, position, sourseRectangle, color, rotation, origin, scale, SpriteEffects.None, 1);
 	}
-
-    public void SetTexture(Texture2D texture)
-    {
-        this.texture = texture;
-    }
 }

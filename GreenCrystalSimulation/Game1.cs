@@ -8,7 +8,6 @@ namespace GreenCrystalSimulation
     public class Game1 : Game
     {
         private GraphicsDeviceManager graphics;
-        private GraphicsDevice graphicsDevice;
         private SpriteBatch spriteBatch;
         private Object crystal;
 
@@ -21,7 +20,7 @@ namespace GreenCrystalSimulation
 
         protected override void Initialize()
         {
-            crystal.SetTexture(TextureGenerator.GenaratePixel(graphicsDevice, 16, pixel => Color.Green  ));
+            crystal = new Object(TextureGenerator.GenaratePixel(graphics.GraphicsDevice, 16, pixel => Color.Green));
             base.Initialize();
         }
 
