@@ -1,7 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using System;
 
 namespace GreenCrystalSimulation
 {
@@ -14,8 +12,11 @@ namespace GreenCrystalSimulation
         }
         public override void Update(GameTime gameTime)
         {
-            base.Update(gameTime);
-            
+
+        }
+        public override void Draw(SpriteBatch spriteBatch)
+        {
+            base.Draw(spriteBatch);
         }
         private void Do()
         {

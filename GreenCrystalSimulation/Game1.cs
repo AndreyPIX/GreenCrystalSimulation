@@ -10,6 +10,7 @@ namespace GreenCrystalSimulation
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
         private Object crystal;
+        private Button startButton;
 
         public Game1()
         {
@@ -21,6 +22,7 @@ namespace GreenCrystalSimulation
         protected override void Initialize()
         {
             crystal = new Object(TextureGenerator.GenerateSquare(graphics.GraphicsDevice, 16, pixel => Color.Green));
+            startButton = new Button(TextureGenerator.GenerateRectangle(graphics.GraphicsDevice, 32, 16, pixel => Color.Gray));
             base.Initialize();
         }
 
@@ -41,11 +43,12 @@ namespace GreenCrystalSimulation
             GraphicsDevice.Clear(Color.Black);
             spriteBatch.Begin();
             crystal.Draw(spriteBatch);
+            startButton.Draw(spriteBatch);
             spriteBatch.End();
             base.Draw(gameTime);
         }
         /* Личные заметки
-           добаление кнопки Start при нажатии кнопка изщезает при нажатии
+           добаление кнопки Start при нажатии кнопка изщезает при нажатии и начинается игра (Пусть отрисовываются объекты и их действия)
          */
     }
 }

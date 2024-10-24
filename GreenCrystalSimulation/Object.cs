@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
 
 public class Object
 {
@@ -12,7 +11,9 @@ public class Object
     protected Vector2 origin;
     protected Vector2 scale;
 
-	private int id;
+	protected bool visibleActive;
+
+	protected int id;
 
     public Object(Texture2D texture)
 	{
@@ -23,13 +24,21 @@ public class Object
         rotation = 0;
         origin = Vector2.Zero;
 		scale = new Vector2(1);
+
+		visibleActive = true;
     }
 	public virtual void Update(GameTime gameTime)
 	{
+		if (visibleActive)
+		{
 
+		}
 	}
 	public virtual void Draw(SpriteBatch spriteBatch)
 	{
-		spriteBatch.Draw(texture, position, sourseRectangle, color, rotation, origin, scale, SpriteEffects.None, 1);
+        if (visibleActive)
+        {
+            spriteBatch.Draw(texture, position, sourseRectangle, color, rotation, origin, scale, SpriteEffects.None, 1);
+        }
 	}
 }
