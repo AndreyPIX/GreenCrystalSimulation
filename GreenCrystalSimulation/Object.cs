@@ -24,7 +24,11 @@ public class Object
         origin = Vector2.Zero;
 		scale = new Vector2(1);
     }
-	public void Draw(SpriteBatch spriteBatch)
+	public virtual void Update(GameTime gameTime)
+	{
+
+	}
+	public virtual void Draw(SpriteBatch spriteBatch)
 	{
 		spriteBatch.Draw(texture, position, sourseRectangle, color, rotation, origin, scale, SpriteEffects.None, 1);
 	}

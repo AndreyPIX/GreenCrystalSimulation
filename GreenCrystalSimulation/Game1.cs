@@ -20,7 +20,7 @@ namespace GreenCrystalSimulation
 
         protected override void Initialize()
         {
-            crystal = new Object(TextureGenerator.GenaratePixel(graphics.GraphicsDevice, 16, pixel => Color.Green));
+            crystal = new Object(TextureGenerator.GenerateSquare(graphics.GraphicsDevice, 16, pixel => Color.Green));
             base.Initialize();
         }
 
@@ -44,5 +44,8 @@ namespace GreenCrystalSimulation
             spriteBatch.End();
             base.Draw(gameTime);
         }
+        /* Личные заметки
+           добаление кнопки Start при нажатии кнопка изщезает при нажатии
+         */
     }
 }
